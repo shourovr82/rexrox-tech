@@ -5,8 +5,11 @@ import Link from 'next/link';
 import { BsGithub } from 'react-icons/bs'
 import { FcGoogle } from 'react-icons/fc'
 import { FaCloudsmith } from 'react-icons/fa6'
+import { signIn } from 'next-auth/react';
 
 const Registration = () => {
+  // console.log(process.env.GITHUB_ID);
+  console.log('shafin', process.env.GITHUB_ID);
   return (
     <div className='relative  bg-[#F2F1FA]'>
       <div>
@@ -33,7 +36,9 @@ const Registration = () => {
 
                 <div className='mt-5 flex justify-center flex-col items-center gap-5 w-[40%] '>
                   <button className='border  flex items-center gap-12 font-Bungee-Shade font-semibold text-sm  px-4 bg-[#871ae00e] rounded-xl py-2 w-full focus:scale-95 duration-300 ease-in-out transition-all hover:bg-[#871ae02d]' type='button'><span ><FcGoogle /></span> Sign up with Google</button>
-                  <button className='border  flex items-center gap-12 font-Bungee-Shade font-semibold text-sm  px-4 bg-[#871ae00e] rounded-xl py-2 w-full focus:scale-95 duration-300 ease-in-out transition-all hover:bg-[#871ae02d]' type='button'><span><BsGithub /></span> Sign up with GitHub</button>
+                  <button onClick={() => signIn("github", {
+                    callbackUrl: "http://localhost:3000"
+                  })} className='border  flex items-center gap-12 font-Bungee-Shade font-semibold text-sm  px-4 bg-[#871ae00e] rounded-xl py-2 w-full focus:scale-95 duration-300 ease-in-out transition-all hover:bg-[#871ae02d]' type='button'><span><BsGithub /></span> Sign up with GitHub</button>
                 </div>
 
                 {/* or */}

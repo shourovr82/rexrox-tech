@@ -9,7 +9,7 @@ const MainLayout = ({
     <>
       {/* navbar */}
       <Navbar />
-      <div>
+      <div className='lg:w-[1280px] mx-auto'>
         {children}
       </div>
       {/* Footer */}
