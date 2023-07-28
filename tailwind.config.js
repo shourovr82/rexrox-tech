@@ -5,9 +5,15 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  theme: {
+    fontFamily: {
+      "poppins": ['Poppins', "sans-serif"],
+      "Lumanosimo": ['Lumanosimo', "cursive"]
+    }
+  },
 
   daisyui: {
-    themes: ["light"],
+    themes: ["cupcake"],
   },
   plugins: [require("daisyui")],
 }
