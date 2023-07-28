@@ -2,4 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Lumanosimo&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+.background-gradient-color{
+/* From https://css.glass */
+  background: rgba(255, 255, 255, 0.082);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(165, 21, 231, 0.267);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(5.8px);
+  border: 1px solid rgba(255, 255, 255, 0);
+}

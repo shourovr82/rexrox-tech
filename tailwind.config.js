@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     fontFamily: {
       "poppins": ['Poppins', "sans-serif"],
-      "Lumanosimo": ['Lumanosimo', "cursive"]
+      "Bungee-Shade": ["Bungee Shade", "cursive"],
+      "Ubuntu": ["Ubuntu", "sans-serif"],
     }
   },
 
