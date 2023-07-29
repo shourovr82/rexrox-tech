@@ -32,10 +32,6 @@ const Navbar = () => {
 
 
 
-
-
-
-
               </ul>
             </div>
           </div>
@@ -58,7 +54,7 @@ const Navbar = () => {
                         }
                         {
                           user?.email &&
-                          <button className="hover:bg-[#490a70] hover:text-white duration-300 ease-in w-full text-start text-sm font-semibold font-Bungee-Shade px-3 py-1" onClick={() => signOut()}>
+                          <button className="hover:bg-[#490a70] hover:text-white duration-300 ease-in w-full text-start text-sm font-semibold font-Bungee-Shade px-3 py-2" onClick={() => signOut()}>
                             Logout
                           </button>
                         }
@@ -66,7 +62,7 @@ const Navbar = () => {
                         {
                           !user?.email &&
                           <Link href="/auth/login" className="w-full">
-                            <button className="hover:bg-[#490a70] hover:text-white duration-300 ease-in w-full text-start text-sm font-semibold rounded-t-lg font-Bungee-Shade px-3 py-1" >
+                            <button className="hover:bg-[#490a70] hover:text-white duration-300 ease-in w-full text-start text-sm font-semibold rounded-t-lg font-Bungee-Shade px-3 py-2" >
                               Login
                             </button>
                           </Link>
@@ -75,7 +71,7 @@ const Navbar = () => {
                         {
                           !user?.email &&
                           <Link href="/auth/registration" className="w-full">
-                            <button className="hover:bg-[#490a70] hover:text-white duration-300 ease-in w-full text-start text-sm font-semibold font-Bungee-Shade rounded-b-lg px-3 py-1">
+                            <button className="hover:bg-[#490a70] hover:text-white duration-300 ease-in w-full text-start text-sm font-semibold font-Bungee-Shade rounded-b-lg px-3 py-2">
                               Sign Up
                             </button>
                           </Link>
@@ -83,7 +79,7 @@ const Navbar = () => {
                         {
                           user?.email &&
                           <Link href="/pc-builder" className="w-full">
-                            <button className="hover:bg-[#490a70] hover:text-white duration-300 rounded-b-lg ease-in w-full text-start text-sm font-semibold font-Bungee-Shade px-3 py-1">
+                            <button className="hover:bg-[#490a70] hover:text-white duration-300 rounded-b-lg ease-in w-full text-start text-sm font-semibold font-Bungee-Shade px-3 py-2">
                               Pc Builder
                             </button>
                           </Link>

@@ -1,4 +1,6 @@
 import MainLayout from "@/components/Layouts/MainLayout";
+import FeaturedCategories from "@/components/UI/Auth/featured/FeaturedCategories";
+import FeaturedProducts from "@/components/UI/Auth/featured/FeaturedProducts";
 import Head from "next/head";
 
 const HomePage = () => {
@@ -15,8 +17,13 @@ const HomePage = () => {
       </Head>
 
 
-      <div>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae dolore aspernatur suscipit officiis voluptate, molestiae a eius enim necessitatibus veritatis accusamus magni doloribus aliquid delectus provident sint quo dolores consequuntur.
+      {/* featured Products */}
+      <div className="max-w-[1280px] mx-auto">
+        <FeaturedProducts />
+      </div>
+      {/* Featured Categories */}
+      <div className="max-w-[1280px] mx-auto">
+        <FeaturedCategories />
       </div>
 
 
