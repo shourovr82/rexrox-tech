@@ -1,10 +1,10 @@
 import MainLayout from "@/components/Layouts/MainLayout";
-import FeaturedCategories from "@/components/UI/Auth/featured/FeaturedCategories";
-import FeaturedProducts from "@/components/UI/Auth/featured/FeaturedProducts";
+import FeaturedCategories from "@/components/UI/featured/FeaturedCategories";
+import FeaturedProducts from "@/components/UI/featured/FeaturedProducts";
 import Head from "next/head";
 
-const HomePage = ({ products }) => {
-  console.log(products);
+const HomePage = ({ products, categories }) => {
+
   return (
     <>
       <Head>
@@ -24,11 +24,8 @@ const HomePage = ({ products }) => {
       </div>
       {/* Featured Categories */}
       <div className="max-w-[1280px] mx-auto">
-        <FeaturedCategories />
+        <FeaturedCategories categories={categories} />
       </div>
-
-
-
 
     </>
   );
@@ -38,11 +35,15 @@ export default HomePage;
 
 export const getStaticProps = async () => {
   const res = await fetch(`${process.env.BACKEND_LINK}/random-product`)
+  const response = await fetch(`${process.env.BACKEND_LINK}/categories`)
+
   const data = await res.json()
-  console.log(data);
+  const categories = await response.json()
+
   return {
     props: {
-      products: data?.data
+      products: data?.data,
+      categories: categories?.data
     }
   }
 }

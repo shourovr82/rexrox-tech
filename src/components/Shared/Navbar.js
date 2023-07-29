@@ -13,7 +13,7 @@ const Navbar = () => {
     <div className="navbar bg-white border-b ">
       <div className="lg:w-[1280px] mx-auto">
         <div className="flex justify-between w-full items-center">
-          <div className="">
+          <div>
             <Link href="/" title="Home">
               <h4 className="font-Bungee-Shade font-bold text-xl">REXROX</h4>
             </Link>
@@ -39,7 +39,10 @@ const Navbar = () => {
           </div>
           <div className="flex items-center gap-5">
             <div>
-              <button className="border px-5 py-1.5 rounded-lg font-Bungee-Shade font-semibold bg-[#490a701a] hover:bg-[#631196]  duration-300 ease-in-out transition-all focus:scale-95  hover:text-white">Pc Builder</button>
+              <Link href="/pcbuilder">
+                <button className="border px-5 py-1.5 rounded-lg font-Bungee-Shade font-semibold bg-[#490a701a] hover:bg-[#631196]  duration-300 ease-in-out transition-all focus:scale-95  hover:text-white">Pc Builder</button>
+              </Link>
+
             </div>
             <div className="relative">
               <button onClick={() => setMenuActive(!isMenuActive)} className="border p-2 rounded-full bg-[#490a701a] focus:scale-95 scale-105 hover:scale-100 hover:bg-[#984dd638] duration-300 ease-in-out transition-all " type="button">
@@ -80,7 +83,7 @@ const Navbar = () => {
                         }
                         {
                           user?.email &&
-                          <Link href="/pc-builder" className="w-full">
+                          <Link href="/pcbuilder" className="w-full">
                             <button className="hover:bg-[#490a70] hover:text-white duration-300 rounded-b-lg ease-in w-full text-start text-sm font-semibold font-Bungee-Shade px-3 py-2">
                               Pc Builder
                             </button>
