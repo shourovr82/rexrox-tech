@@ -3,7 +3,8 @@ import FeaturedCategories from "@/components/UI/Auth/featured/FeaturedCategories
 import FeaturedProducts from "@/components/UI/Auth/featured/FeaturedProducts";
 import Head from "next/head";
 
-const HomePage = () => {
+const HomePage = ({ products }) => {
+  console.log(products);
   return (
     <>
       <Head>
@@ -19,7 +20,7 @@ const HomePage = () => {
 
       {/* featured Products */}
       <div className="max-w-[1280px] mx-auto">
-        <FeaturedProducts />
+        <FeaturedProducts products={products} />
       </div>
       {/* Featured Categories */}
       <div className="max-w-[1280px] mx-auto">
@@ -34,6 +35,18 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+export const getStaticProps = async () => {
+  const res = await fetch(`${process.env.BACKEND_LINK}/random-product`)
+  const data = await res.json()
+  console.log(data);
+  return {
+    props: {
+      products: data?.data
+    }
+  }
+}
+
 
 HomePage.getLayout = function getLayout(page) {
   return <MainLayout>{page}</MainLayout>

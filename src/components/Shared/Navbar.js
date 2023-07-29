@@ -14,7 +14,9 @@ const Navbar = () => {
       <div className="lg:w-[1280px] mx-auto">
         <div className="flex justify-between w-full items-center">
           <div className="">
-            <h4 className="font-Bungee-Shade font-bold text-xl">REXROX</h4>
+            <Link href="/" title="Home">
+              <h4 className="font-Bungee-Shade font-bold text-xl">REXROX</h4>
+            </Link>
           </div>
           <div>
             <div className="dropdown dropdown-hover">
