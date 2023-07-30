@@ -2,8 +2,8 @@
 const Footer = () => {
   return (
     <div className="footer mt-5  pt-10 bg-base-200">
-      <div className=" lg:w-[1280px] mx-auto">
-        <footer className="footer text-base-content">
+      <div className="w-full max-md:px-5 lg:w-[1280px] mx-auto">
+        <footer className="footer max-md:grid grid-cols-2 text-base-content">
 
           <div>
             <span className="footer-title">Services</span>

@@ -2,6 +2,7 @@ import MainLayout from "@/components/Layouts/MainLayout";
 import FeaturedCategories from "@/components/UI/featured/FeaturedCategories";
 import FeaturedProducts from "@/components/UI/featured/FeaturedProducts";
 import HeroSection from "@/components/UI/hero/HeroSection";
+import HeroSection2 from "@/components/UI/hero/HeroSection2";
 import Head from "next/head";
 
 const HomePage = ({ products, categories }) => {
@@ -30,6 +31,9 @@ const HomePage = ({ products, categories }) => {
       {/* Featured Categories */}
       <div className="max-w-[1280px] mx-auto">
         <FeaturedCategories categories={categories} />
+      </div>
+      <div className="max-w-[1280px] mx-auto">
+        <HeroSection2 />
       </div>
 
     </>
