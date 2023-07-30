@@ -1,12 +1,15 @@
 import MainLayout from "@/components/Layouts/MainLayout";
 import Image from "next/image";
 import Link from "next/link";
+import { toast } from "react-hot-toast";
 import { useSelector } from "react-redux";
 
-const PcBuilderPage = ({ categories }) => {
-  // const srv = useSelector(state => state.products)
-  const { products } = useSelector(state => state.products);
-  console.log(products);
+const PcBuilderPage = () => {
+  const { products, totalProduct } = useSelector(state => state.products);
+
+  const handleComplete = () => {
+    toast.success("Successfully Build")
+  }
 
   return (
     <div className="py-5">
@@ -25,23 +28,25 @@ const PcBuilderPage = ({ categories }) => {
           {
             products?.map(category =>
               <div key={Math.random()}>
-                <div className="flex border p-5 justify-between gap-5">
+                <div className="flex border border-[#8c18d6] rounded-lg shadow-lg p-5 justify-between gap-5">
                   <div className="flex gap-5">
 
                     <div>
                       <Image src={category?.Image} alt="" height={80} width={80} />
                     </div>
-                    <div >
-                      <p className="font-Bungee-Shade  font-semibold text-lg">{category?.category} <span className="text-xs bg-[#808996] text-white px-2 py-0.5 rounded font-poppins font-normal">Required</span> </p>
+                    <div className="space-y-4" >
+                      <p className="font-Bungee-Shade  ">{category?.category} {
+                        category?.category !== "Others" && <span className="text-xs bg-[#808996] text-white px-2 py-0.5 rounded font-poppins font-normal">Required</span>
+                      } </p>
                       <div>
-                        {category?.products?.map(singleProduct => <p key={Math.random()}>{singleProduct.productName}</p>)}
+                        {category?.products?.map(singleProduct => <p className="text-lg font-Bungee-Shade font-semibold" key={Math.random()}>{singleProduct.productName}</p>)}
                       </div>
 
                     </div>
                   </div>
                   <div>
                     <Link href={`/pcbuilder/choose/${category?.category}`}>
-                      <button className="border px-5 py-1 font-Bungee-Shade hover:shadow-md  rounded-lg" type="button">Select</button>
+                      <button className="border bg-[#961be21e] px-5 py-1 font-Bungee-Shade hover:shadow-md  rounded-lg" type="button">Select</button>
                     </Link>
                   </div>
 
@@ -51,10 +56,13 @@ const PcBuilderPage = ({ categories }) => {
             )
           }
         </div>
-
+        <div className="flex justify-end mt-10">
+          <button onClick={() => handleComplete()} className="disabled:border-[#8c18d6] disabled:text-black font-Bungee-Shade font-semibold duration-300 hover:scale-95 disabled:hover:scale-100 text-white disabled:bg-[#fff] disabled:cursor-not-allowed bg-[#8c18d6] border rounded-md  px-3 py-2"
+            disabled={totalProduct < 5}
+          >{totalProduct < 5 ? "Choose 5 Product First" : "Build Completed"}</button>
+        </div>
 
       </div>
-
 
 
 
@@ -66,17 +74,5 @@ export default PcBuilderPage;
 
 PcBuilderPage.getLayout = function getLayout(page) {
   return <MainLayout>{page}</MainLayout>;
-};
-
-export const getServerSideProps = async () => {
-  const res = await fetch(`${process.env.BACKEND_LINK}/categories`);
-  const data = await res.json();
-
-
-  return {
-    props: {
-      categories: data?.data,
-    },
-  };
 };
 

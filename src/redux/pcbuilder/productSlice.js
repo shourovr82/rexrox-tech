@@ -39,7 +39,8 @@ const initialState = {
       products: []
     }
 
-  ]
+  ],
+  totalProduct: 0
 
 }
 
@@ -62,6 +63,7 @@ const productSlice = createSlice({
         } else {
           // If the product doesn't exist, add it to the products array
           state.products[categoryIndex].products.push(product);
+          state.totalProduct = state.totalProduct + 1
         }
       }
     },

@@ -1,6 +1,7 @@
 import MainLayout from "@/components/Layouts/MainLayout";
 import FeaturedCategories from "@/components/UI/featured/FeaturedCategories";
 import FeaturedProducts from "@/components/UI/featured/FeaturedProducts";
+import HeroSection from "@/components/UI/hero/HeroSection";
 import Head from "next/head";
 
 const HomePage = ({ products, categories }) => {
@@ -17,6 +18,10 @@ const HomePage = ({ products, categories }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {/* hero section */}
+      <div className="w-full">
+        <HeroSection />
+      </div>
 
       {/* featured Products */}
       <div className="max-w-[1280px] mx-auto">

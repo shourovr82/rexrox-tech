@@ -45,9 +45,9 @@ const ProductDetails = ({ product }) => {
             <h1 className="font-Bungee-Shade font-semibold text-3xl">{product?.productName}</h1>
           </div>
           {/* rating */}
-          <div className="flex  gap-20 items-center">
-            <div className="flex flex-col items-center justify-center">
-              <p className="mt-4 text-sm  font-Bungee-Shade">Average Rating
+          <div className="flex  gap-20  items-center">
+            <div className="flex flex-col  items-start ">
+              <p className="mt-4 text-sm text-start font-Bungee-Shade">Average Rating
               </p>
               <div className="flex font-Bungee-Shade font-semibold  items-center gap-1 ">
                 <AiFillStar className="text-[#ffc107]" />
@@ -58,7 +58,7 @@ const ProductDetails = ({ product }) => {
                 <span className="text-2xl"> {product?.averageRating}</span>
               </div>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-start">
               <p className="mt-4 text-sm  font-Bungee-Shade ">Individual  Rating
               </p>
               <div className="flex font-Bungee-Shade font-semibold  items-center gap-1 ">
@@ -105,30 +105,30 @@ const ProductDetails = ({ product }) => {
               {product?.description}
             </p>
           </div>
-          {/* reviews */}
-          <div className="mt-5">
-            <h4 className="underline-offset-4 underline font-Bungee-Shade text-lg font-semibold">Reviews : </h4>
-            <div className="mt-2 w-full  space-y-3">
-              {
-                product?.reviews?.map(review =>
-                  <div className="w-full border p-5 rounded-2xl shadow-md" key={Math.random()}>
-                    <div>
-                      <p className="font-Bungee-Shade">{review?.message}</p>
-                    </div>
-                    <div className="grid grid-cols-4 gap-10 mt-3">
-                      <p className="text-xs font-medium col-span-2">{review?.reviewer}</p>
-                      <p className="text-xs font-medium col-span-2">{getTimeFormat(review?.time)}</p>
-                    </div>
-                  </div>
-                )
 
-              }
-            </div>
-          </div>
         </div>
       </div>
 
+      {/* reviews */}
+      <div className="mt-10 ">
+        <h4 className="underline-offset-4 underline font-Bungee-Shade text-lg font-semibold">Reviews : </h4>
+        <div className="mt-2 w-full  space-y-3">
+          {
+            product?.reviews?.map(review =>
+              <div className="w-full border p-5 rounded-2xl shadow-md" key={Math.random()}>
+                <div>
+                  <p className="font-Bungee-Shade">{review?.message}</p>
+                </div>
+                <div className="grid  grid-cols-6 gap-2 mt-3">
+                  <p className="text-xs font-medium col-span-2">Author : {review?.reviewer}</p>
+                  <p className="text-xs font-medium col-span-2">Reviewed Time : {getTimeFormat(review?.time)}</p>
+                </div>
+              </div>
+            )
 
+          }
+        </div>
+      </div>
     </div>
   );
 };

@@ -3,11 +3,15 @@ import Link from "next/link";
 import { useState } from "react";
 import { GrMenu } from 'react-icons/gr'
 import { RiArrowDownSLine } from 'react-icons/ri'
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [isMenuActive, setMenuActive] = useState(false)
   const { data: session } = useSession()
   const { user } = session || {}
+
+  const { products } = useSelector(state => state.products);
+
 
   return (
     <div className="navbar bg-white border-b ">
@@ -23,14 +27,12 @@ const Navbar = () => {
 
               <label tabIndex={0} className=" px-5 py-1.5 cursor-pointer rounded-lg font-Bungee-Shade font-semibold flex items-center gap-2">Categories <RiArrowDownSLine /> </label>
               <ul tabIndex={0} className="dropdown-content z-[1] menu p-2  shadow bg-base-100 rounded-box w-52">
-                <li className="rounded-none text-sm font-semibold font-Bungee-Shade"> <Link href="/">Processor</Link> </li>
-                <li className="rounded-none text-sm font-semibold font-Bungee-Shade"> <Link href="/">Motherboard</Link> </li>
-                <li className="rounded-none text-sm font-semibold font-Bungee-Shade"> <Link href="/">RAM</Link> </li>
-                <li className="rounded-none text-sm font-semibold font-Bungee-Shade"> <Link href="/">Power Supply Unit</Link>  </li>
-                <li className="rounded-none text-sm font-semibold font-Bungee-Shade"> <Link href="/">Storage Device</Link>  </li>
-                <li className="rounded-none text-sm font-semibold font-Bungee-Shade"> <Link href="/">Monitor</Link> </li>
-                <li className="rounded-none text-sm font-semibold font-Bungee-Shade"> <Link href="/">Others</Link> </li>
-
+                {
+                  products?.map(category =>
+                    <li key={Math.random()} className="rounded-none text-sm font-semibold font-Bungee-Shade">
+                      <Link href={`/category/${category?.category}`}>{category?.category}</Link>
+                    </li>)
+                }
 
 
 

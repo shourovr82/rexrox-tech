@@ -14,8 +14,6 @@ const CategoriesProducts = ({ products, categoryName }) => {
         </Link>
         <span><FaAngleRight /></span>
         <h5>{categoryName}</h5>
-        <span><FaAngleRight /></span>
-        <h5>Products</h5>
 
       </div>
 
@@ -83,7 +81,6 @@ export const getStaticProps = async (context) => {
 
   );
   const data = await res.json();
-  console.log(data);
 
   return {
     props: {
