@@ -21,7 +21,7 @@ const ChooseProducts = ({ products, categoryName }) => {
 
   return (
     <div className="mt-5 max-w-[1280px] mx-auto pb-20">
-      <div className="flex font-Bungee-Shade   gap-3 items-center">
+      <div className="flex font-Bungee-Shade   gap-1 pl-2 md:gap-3 items-center">
         <Link href="/pcbuilder">
           <h5>Pc Builder</h5>
         </Link>
@@ -33,16 +33,16 @@ const ChooseProducts = ({ products, categoryName }) => {
       </div>
 
 
-      <div className="space-y-5 mt-10 max-w-[1000px] mx-auto">
+      <div className="space-y-5 mt-10 w-full max-md:px-5 lg:max-w-[1000px] mx-auto">
         {
           products?.length && products?.map(product =>
-            <div key={Math.random()} className="grid items-center  grid-cols-10 bg-white shadow-lg rounded-2xl  space-y-4 justify-between">
+            <div key={Math.random()} className="lg:grid items-center  grid-cols-10 bg-white shadow-lg rounded-2xl  space-y-4 justify-between">
 
-              <div className="col-span-8 flex  w-full items-center ">
+              <div className="col-span-8 flex  w-full max-md:flex-col items-center ">
                 <div className="flex justify-start">
                   <Image className="rounded-t-2xl " src={product?.image} width={250} height={200} alt="" />
                 </div>
-                <div className="px-5 space-y-2">
+                <div className="px-5 max-md:w-full space-y-2">
                   <div>
                     <h4 className="font-Bungee-Shade  font-semibold">{product?.productName}</h4>
                   </div>
@@ -61,7 +61,7 @@ const ChooseProducts = ({ products, categoryName }) => {
                 </div>
               </div>
 
-              <div className="w-full col-span-2 flex flex-col items-center gap-y-3 ">
+              <div className="w-full max-md:pb-8 col-span-2 flex flex-col items-center gap-y-3 ">
                 <h4 className="font-Bungee-Shade text-lg font-semibold text-[#9118da]">${product?.price}</h4>
                 <button onClick={() => handleAddToBuilder(product)} className="border border-[#8c18d6] hover:bg-[#8c18d6] hover:text-white duration-300 ease-in-out transition-all font-Bungee-Shade font-semibold px-3 py-2 rounded-md " type="button">Add to Builder</button>
               </div>
