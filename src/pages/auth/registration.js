@@ -56,11 +56,11 @@ const Registration = () => {
                 </div>
 
                 <div className='mt-5 flex justify-center flex-col items-center gap-5 lg:w-[40%] '>
-                  <button className='border  flex items-center gap-12 font-Bungee-Shade font-semibold text-sm  px-4 bg-[#871ae00e] rounded-xl py-2 w-full focus:scale-95 duration-300 ease-in-out transition-all hover:bg-[#871ae02d]' type='button'><span ><FcGoogle />
+                  <button disabled={true} className='cursor-not-allowed border  flex items-center gap-12 font-Bungee-Shade font-semibold text-sm  px-4 bg-[#871ae00e] rounded-xl py-2 w-full focus:scale-95 duration-300 ease-in-out transition-all hover:bg-[#871ae02d]' type='button'><span ><FcGoogle />
                   </span> Sign up with Google</button>
                   <button
                     onClick={() => signIn("github", {
-                      callbackUrl: "http://localhost:3000"
+                      callbackUrl: "https://rexrox-tech-shourovr82.vercel.app/"
                     })}
                     className='border  flex items-center gap-12 font-Bungee-Shade font-semibold text-sm  px-4 bg-[#871ae00e] rounded-xl py-2 w-full focus:scale-95 duration-300 ease-in-out transition-all hover:bg-[#871ae02d]' type='button'><span><BsGithub />
                     </span> Sign up with GitHub</button>

@@ -20,7 +20,7 @@ const HeroSection = () => {
                   <div>
                     <h1 className="text-4xl font-bold text-black  lg:text-5xl">Build Your Dream PC <br className="max-md:hidden" /> Discover High-Quality Components at RexRox Tech!</h1>
                     <p className="mt-6 text-base text-black sm:text-xl">REXROX TECH - Where PC Enthusiasts Find Premium Components for Ultimate Performance!</p>
-                    <button title="" className="inline-flex items-center px-6 py-5 text-base font-semibold text-white transition-all duration-200 bg-[#8c18d6] mt-9 hover:bg-[#6a03aa] rounded-md" role="button"> Get started for free </button>
+                    <button title="" className="inline-flex items-center px-6 py-5 text-base font-semibold text-white transition-all duration-200 border-[#6a03aa] mt-9 hover:bg-[#6a03aa] rounded-md" role="button"> Get started for free </button>
                   </div>
 
 

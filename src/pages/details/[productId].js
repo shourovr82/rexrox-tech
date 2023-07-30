@@ -9,7 +9,6 @@ const ProductDetails = ({ product }) => {
 
   const getTimeFormat = (dateString) => {
     const date = new Date(dateString);
-    // Option 3: Using Intl.DateTimeFormat to customize the format
     const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
     const formatter = new Intl.DateTimeFormat(undefined, options);
     const bestFormatOption3 = formatter.format(date);
@@ -135,7 +134,7 @@ const ProductDetails = ({ product }) => {
 export default ProductDetails;
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`http://localhost:5000/products`)
+  const res = await fetch(`https://rexrox-tech-server.vercel.app/products`)
   const products = await res.json()
 
   const paths = products?.data?.map((product) => ({
@@ -148,7 +147,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
 
   const { params } = context
-  const res = await fetch(`http://localhost:5000/product/${params.productId}`)
+  const res = await fetch(`https://rexrox-tech-server.vercel.app/product/${params.productId}`)
   const data = await res.json()
 
 

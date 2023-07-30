@@ -87,34 +87,16 @@ ChooseProducts.getLayout = function getLayout(page) {
 export const getServerSideProps = async (context) => {
   const { params } = context;
 
-  try {
-    // Fetch categories on the server side
-    const resCategories = await fetch(`${process.env.BACKEND_LINK}/categories`);
-    const categories = await resCategories.json();
+  const resProducts = await fetch(`${process.env.BACKEND_URL}/category?categoryname=${params.categoryName}`);
+  const data = await resProducts.json();
 
-    // Map category names to create paths
-    const paths = categories?.data?.map((category) => ({
-      params: { categoryName: category?.category },
-    }));
-
-    // Fetch products for the specific category on the server side
-    const resProducts = await fetch(`${process.env.BACKEND_LINK}/category?categoryname=${params.categoryName}`);
-    const data = await resProducts.json();
-
-    return {
-      props: {
-        products: data.data,
-        categoryName: params?.categoryName
-      },
-    };
-  } catch (error) {
-    // Handle any errors during data fetching
-    console.error(error);
-    return {
-      notFound: true, // or any other error handling like redirect to an error page
-    };
-  }
-};
+  return {
+    props: {
+      products: data.data,
+      categoryName: params?.categoryName
+    },
+  };
+}
 
 
 

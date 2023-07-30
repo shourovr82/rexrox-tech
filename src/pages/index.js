@@ -43,8 +43,8 @@ const HomePage = ({ products, categories }) => {
 export default HomePage;
 
 export const getStaticProps = async () => {
-  const res = await fetch(`${process.env.BACKEND_LINK}/random-product`)
-  const response = await fetch(`${process.env.BACKEND_LINK}/categories`)
+  const res = await fetch(`https://rexrox-tech-server.vercel.app/random-product`)
+  const response = await fetch(`https://rexrox-tech-server.vercel.app/categories`)
 
   const data = await res.json()
   const categories = await response.json()
