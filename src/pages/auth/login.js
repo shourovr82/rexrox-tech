@@ -19,39 +19,35 @@ const Login = () => {
       <div>
         <Image src={backgroundPhoto} alt='' className='h-[100vh] w-[35%]' width={500} height={900} />
       </div>
-      <div className='border absolute  top-[10%] left-[10%] shadow-xl !rounded-[30px] p-10 w-[80%] h-[80vh] background-gradient-color  '>
-        <div className='grid grid-cols-10'>
-          <div className='col-span-3'>
+      <div className='border absolute  top-[10%] left-[5%] lg:left-[10%] shadow-xl !rounded-[30px] p-10 w-[90%] lg:w-[80%] h-[80vh] max-md:bg-white background-gradient-color  '>
+        <div className='lg:grid grid-cols-10'>
+          <div className='col-span-3 max-md:hidden'>
             <AuthInformationUi />
           </div>
           <div className='col-span-7 flex justify-center'>
             <div className='w-full'>
-              <div className='flex  justify-end items-center w-full  gap-3'>
+              <div className='flex  justify-between lg:justify-end items-center w-full  gap-3'>
                 <Link href="/">
-                  <button className='mr-10 flex items-center gap-3 text-sm font-semibold font-Bungee-Shade px-4 border rounded-full p-1.5' type='button'>
-                    Back to Home  <IoHome size={25} />
+                  <button className='mr-10 flex items-center gap-3 text-sm font-semibold font-Bungee-Shade px-2 lg:px-4 border rounded-full p-1.5' type='button'>
+                    Back to Home  <IoHome className='max-md:hidden' size={25} />
                   </button>
                 </Link>
-                <div className='flex items-center gap-3 '>
-                  <h4 className='text-sm font-Bungee-Shade  font-semibold text-[#3b2250]'>New to this Website?</h4>
+                <div className='lg:flex  items-center gap-3 '>
+                  <h4 className='text-sm font-Bungee-Shade  font-semibold text-[#3b2250] max-md:hidden'>New to this Website?</h4>
                   <Link href="/auth/registration">
                     <button className='border rounded-xl py-1.5 px-4 bg-[#951edf10] hover:bg-[#951edf21] duration-300 transition-all ease-in-out focus:scale-90
                   text-[#941edf] text-sm  font-Bungee-Shade font-semibold' type='button'>Register</button>
                   </Link>
                 </div>
               </div>
-              <div className='mt-3 flex flex-col items-center'>
+              <div className='mt-3 max-md:mt-10 flex flex-col items-center'>
                 <div>
-                  <h1 className='text-3xl font-Bungee-Shade text-[#3b2250] font-semibold'>Login to Your Account </h1>
+                  <h1 className=' text-2xl lg:text-3xl font-Bungee-Shade text-[#3b2250] font-semibold'>Login to Your Account </h1>
                 </div>
 
-                <div className='mt-5 flex justify-center flex-col items-center gap-5 w-[40%] '>
+                <div className='mt-5 flex justify-center flex-col items-center gap-5 lg:w-[40%] '>
                   <button className='border  flex items-center gap-12 font-Bungee-Shade font-semibold text-sm  px-4 bg-[#871ae00e] rounded-xl py-2 w-full focus:scale-95 duration-300 ease-in-out transition-all hover:bg-[#871ae02d]' type='button'><span ><FcGoogle />
                   </span> Sign in with Google</button>
-
-
-
-
                   <button
                     onClick={() => signIn("github", {
                       callbackUrl: "http://localhost:3000"
@@ -68,7 +64,7 @@ const Login = () => {
                 </div>
 
                 {/* email and password */}
-                <form onSubmit={handleSubmit(onSubmit)} className='w-[50%] mx-auto '>
+                <form onSubmit={handleSubmit(onSubmit)} className='lg:w-[50%] mx-auto '>
                   <div className=' flex flex-col space-y-2'>
                     <label htmlFor="email" className='text-sm font-Bungee-Shade  font-semibold'>Email</label>
                     <input {...register("email", {
