@@ -19,7 +19,6 @@ const ProductDetails = ({ product }) => {
   }
 
 
-  console.log(product);
   return (
     <div className="mt-10">
       <div className="flex  items-center gap-2 pl-1 md:gap-5 text-[#afb8c4] font-medium text-sm">

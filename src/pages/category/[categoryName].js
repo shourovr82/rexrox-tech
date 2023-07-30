@@ -5,7 +5,7 @@ import { AiFillStar } from "react-icons/ai";
 import { FaAngleRight } from "react-icons/fa6";
 
 const CategoriesProducts = ({ products, categoryName }) => {
-  console.log(products);
+
   return (
     <div className="mt-5">
       <div className="flex font-Bungee-Shade   gap-3 items-center">
