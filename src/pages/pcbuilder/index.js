@@ -1,8 +1,13 @@
 import MainLayout from "@/components/Layouts/MainLayout";
 import Image from "next/image";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const PcBuilderPage = ({ categories }) => {
+  // const srv = useSelector(state => state.products)
+  const { products } = useSelector(state => state.products);
+  console.log(products);
+
   return (
     <div className="py-5">
       <div className="flex justify-center border-b pb-10">
@@ -18,17 +23,19 @@ const PcBuilderPage = ({ categories }) => {
         {/* categories */}
         <div className="space-y-10 mt-10">
           {
-            categories?.map(category =>
+            products?.map(category =>
               <div key={Math.random()}>
                 <div className="flex border p-5 justify-between gap-5">
                   <div className="flex gap-5">
-
 
                     <div>
                       <Image src={category?.Image} alt="" height={80} width={80} />
                     </div>
                     <div >
                       <p className="font-Bungee-Shade  font-semibold text-lg">{category?.category} <span className="text-xs bg-[#808996] text-white px-2 py-0.5 rounded font-poppins font-normal">Required</span> </p>
+                      <div>
+                        {category?.products?.map(singleProduct => <p key={Math.random()}>{singleProduct.productName}</p>)}
+                      </div>
 
                     </div>
                   </div>
@@ -36,9 +43,8 @@ const PcBuilderPage = ({ categories }) => {
                     <Link href={`/pcbuilder/choose/${category?.category}`}>
                       <button className="border px-5 py-1 font-Bungee-Shade hover:shadow-md  rounded-lg" type="button">Select</button>
                     </Link>
-
-
                   </div>
+
                 </div>
 
               </div>

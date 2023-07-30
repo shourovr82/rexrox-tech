@@ -1,10 +1,24 @@
 import MainLayout from "@/components/Layouts/MainLayout";
+import { addToBuilder } from "@/redux/pcbuilder/productSlice";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { AiFillStar } from "react-icons/ai";
 import { FaAngleRight } from "react-icons/fa6";
+import { useDispatch } from "react-redux";
 
 const ChooseProducts = ({ products, categoryName }) => {
+  const dispatch = useDispatch()
+  const router = useRouter();
+
+  const handleAddToBuilder = (product) => {
+    dispatch(addToBuilder({ category: product?.category, product }));
+
+    // Redirect to a specific page using the useRouter hook
+    router.push('/pcbuilder');
+  }
+
+
   return (
     <div className="mt-5 max-w-[1280px] mx-auto pb-20">
       <div className="flex font-Bungee-Shade   gap-3 items-center">
@@ -26,7 +40,7 @@ const ChooseProducts = ({ products, categoryName }) => {
 
               <div className="col-span-8 flex  w-full items-center ">
                 <div className="flex justify-start">
-                  <Image className="w-[250px] rounded-t-2xl h-[200px]" src={product?.image} width={300} height={200} alt="" />
+                  <Image className="rounded-t-2xl " src={product?.image} width={250} height={200} alt="" />
                 </div>
                 <div className="px-5 space-y-2">
                   <div>
@@ -49,7 +63,7 @@ const ChooseProducts = ({ products, categoryName }) => {
 
               <div className="w-full col-span-2 flex flex-col items-center gap-y-3 ">
                 <h4 className="font-Bungee-Shade text-lg font-semibold text-[#9118da]">${product?.price}</h4>
-                <button className="border border-[#8c18d6] hover:bg-[#8c18d6] hover:text-white duration-300 ease-in-out transition-all font-Bungee-Shade font-semibold px-3 py-2 rounded-md " type="button">Add to Builder</button>
+                <button onClick={() => handleAddToBuilder(product)} className="border border-[#8c18d6] hover:bg-[#8c18d6] hover:text-white duration-300 ease-in-out transition-all font-Bungee-Shade font-semibold px-3 py-2 rounded-md " type="button">Add to Builder</button>
               </div>
 
 
