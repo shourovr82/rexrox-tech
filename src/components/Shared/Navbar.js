@@ -15,14 +15,14 @@ const Navbar = () => {
 
   return (
     <div className="navbar bg-white border-b ">
-      <div className="lg:w-[1280px] mx-auto">
+      <div className="lg:w-[1280px] w-full max-md:px-2 mx-auto">
         <div className="flex justify-between w-full items-center">
           <div>
             <Link href="/" title="Home">
               <h4 className="font-Bungee-Shade font-bold text-xl">REXROX</h4>
             </Link>
           </div>
-          <div>
+          <div className="">
             <div className="dropdown dropdown-hover">
 
               <label tabIndex={0} className=" px-5 py-1.5 cursor-pointer rounded-lg font-Bungee-Shade font-semibold flex items-center gap-2">Categories <RiArrowDownSLine /> </label>
@@ -40,7 +40,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="flex items-center gap-5">
-            <div>
+            <div className="max-md:hidden">
               <Link href="/pcbuilder">
                 <button className="border px-5 py-1.5 rounded-lg font-Bungee-Shade font-semibold bg-[#490a701a] hover:bg-[#631196]  duration-300 ease-in-out transition-all focus:scale-95  hover:text-white">Pc Builder</button>
               </Link>
@@ -83,15 +83,16 @@ const Navbar = () => {
                             </button>
                           </Link>
                         }
-                        {
-                          user?.email &&
-                          <Link href="/pcbuilder" className="w-full">
-                            <button className="hover:bg-[#490a70] hover:text-white duration-300 rounded-b-lg ease-in w-full text-start text-sm font-semibold font-Bungee-Shade px-3 py-2">
-                              Pc Builder
-                            </button>
-                          </Link>
 
-                        }
+                        <Link href="/pcbuilder" className="w-full">
+                          <button className="hover:bg-[#490a70] hover:text-white duration-300 rounded-b-lg ease-in w-full text-start text-sm font-semibold font-Bungee-Shade px-3 py-2">
+                            Pc Builder
+                          </button>
+                        </Link>
+
+
+
+
                       </div>
 
                     </div>

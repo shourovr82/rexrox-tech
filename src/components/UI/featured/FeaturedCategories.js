@@ -1,19 +1,12 @@
-import { BsMotherboard } from 'react-icons/bs';
-import { FaMemory } from 'react-icons/fa6';
-import { FiCpu } from 'react-icons/fi'
-import { TfiHarddrives } from 'react-icons/tfi'
-import { ImHeadphones } from 'react-icons/im'
-import { GrMonitor } from 'react-icons/gr'
-import powerSupplyImg from '@/Assets/categories/psupply.svg'
-import graphicsCardlyImg from '@/Assets/categories/gcard.svg'
+
 import Image from 'next/image';
 import Link from 'next/link';
 
 const FeaturedCategories = ({ categories }) => {
   return (
     <div >
-      <div className="flex justify-center flex-col items-center">
-        <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl font-poppins lg:text-5xl">Featured Categories</h2>
+      <div className="flex max-md:mt-10 justify-center flex-col items-center">
+        <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl font-poppins  lg:text-5xl">Featured Categories</h2>
         <p>Get Your Desired Product from Featured Category!</p>
       </div>
 

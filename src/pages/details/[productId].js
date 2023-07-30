@@ -22,7 +22,7 @@ const ProductDetails = ({ product }) => {
   console.log(product);
   return (
     <div className="mt-10">
-      <div className="flex  items-center gap-5 text-[#afb8c4] font-medium text-sm">
+      <div className="flex  items-center gap-2 pl-1 md:gap-5 text-[#afb8c4] font-medium text-sm">
         <Link href="/">
           <p>Products</p>
         </Link>
@@ -34,18 +34,18 @@ const ProductDetails = ({ product }) => {
       {/* details */}
 
 
-      <div className="mt-10 w-full  grid grid-cols-7">
+      <div className="mt-10 w-full  lg:grid  lg:grid-cols-7">
 
         <div className="col-span-3 w-full">
           <Image className="w-[500px] rounded-2xl" src={product?.image} alt="" width={300} height={200} />
         </div>
 
-        <div className="col-span-4">
+        <div className="col-span-4 max-md:mt-10 max-md:px-5">
           <div>
             <h1 className="font-Bungee-Shade font-semibold text-3xl">{product?.productName}</h1>
           </div>
           {/* rating */}
-          <div className="flex  gap-20  items-center">
+          <div className="flex  gap-10 lg:gap-20  items-center">
             <div className="flex flex-col  items-start ">
               <p className="mt-4 text-sm text-start font-Bungee-Shade">Average Rating
               </p>
@@ -74,7 +74,7 @@ const ProductDetails = ({ product }) => {
           </div>
           {/* price */}
 
-          <div className="mt-10 border-b flex gap-40 items-center pb-10">
+          <div className="mt-10 border-b flex gap-10 lg:gap-40 items-center pb-10">
             <h2 className="text-3xl font-semibold font-Bungee-Shade">
               ${product?.price}
             </h2>
@@ -110,7 +110,7 @@ const ProductDetails = ({ product }) => {
       </div>
 
       {/* reviews */}
-      <div className="mt-10 ">
+      <div className="mt-10 max-md:px-5 border-t pt-5 ">
         <h4 className="underline-offset-4 underline font-Bungee-Shade text-lg font-semibold">Reviews : </h4>
         <div className="mt-2 w-full  space-y-3">
           {
@@ -119,7 +119,7 @@ const ProductDetails = ({ product }) => {
                 <div>
                   <p className="font-Bungee-Shade">{review?.message}</p>
                 </div>
-                <div className="grid  grid-cols-6 gap-2 mt-3">
+                <div className="grid  lg:grid-cols-6 gap-2 mt-3">
                   <p className="text-xs font-medium col-span-2">Author : {review?.reviewer}</p>
                   <p className="text-xs font-medium col-span-2">Reviewed Time : {getTimeFormat(review?.time)}</p>
                 </div>
